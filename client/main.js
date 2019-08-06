@@ -2,21 +2,26 @@ $(document).ready( startApp );
 
 function startApp(){
   getData();
+  getMoreData();
 }
 
 function getData(){
   $.ajax({
-    url: "../server/getnames.json",
+    url: "http://localhost:3005/name",
     method: 'get',
     dataType: 'json',
-    success: handleDataFromServer,
+    success: handleNameDataFromServer,
 
   })
 }
 
-function handleDataFromServer( response ){
+function handleNameDataFromServer( response ){
+  for (var i = 0; i < response.length; i++){
+    var nameDiv = $("<div>").text(response[i].name);
+    $("body").append(nameDiv);
+  }
   console.log(response);
-  getMoreData();
+
 }
 
 // function addCanidate(){
@@ -34,14 +39,14 @@ function handleDataFromServer( response ){
 
 function getMoreData(){
   $.ajax({
-    url: "../server/getgrades.json",
+    url: "http://localhost:3005/grade",
     method: 'get',
     dataType: 'json',
-    success: handleMoreDataFromServer,
+    success: handleGradeDataFromServer,
   })
 }
 
 
-function handleMoreDataFromServer(response){
+function handleGradeDataFromServer(response){
   console.log(response);
 }
