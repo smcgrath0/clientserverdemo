@@ -2,6 +2,9 @@
 const express = require('express');
 
 const cors = require('cors');
+const mysql = require('mysql');
+const creds = require('./mysqlcredentials.js')
+const connection = mysql.createConnection(creds);
 //server is an object that is returned when calling the express function
 const server = express();
 
