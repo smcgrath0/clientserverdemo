@@ -1,5 +1,7 @@
 [{
-    "name": "steven"
+    "name": "steven",
+    "grade": "87"
 },{
-    "name": "kiddo"
+    "name": "kiddo",
+    "grade": "92"
 }]
